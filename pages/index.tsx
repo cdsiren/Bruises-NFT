@@ -75,7 +75,7 @@ const Home: NextPage = (props: any) => {
               <MintButton 
                 chainId={props.contractData.chainId} 
                 contractAddress={props.contractData.address} 
-                price={parseFloat(props.contractData.data.tokenPrice)} 
+                price={0.0005} // crossmint can't be used w. free nfts; ok to charge convenience fee here
                 setQuantity={setMintQuantity} 
                 quantity={mintQuantity} 
                 decentLink={'https://hq.decent.xyz/1/Editions/0xbeCA7aBd9590257c2Aaa8671Be0ac4d6b713EDAC'} 
@@ -83,8 +83,7 @@ const Home: NextPage = (props: any) => {
                 clientId={process.env.NEXT_PUBLIC_CROSSMINT_CLIENTID}
                 activeChain={1}
               />
-              {/* Crossmint not yet verified */}
-              {/* <Toggle state={creditCard} setState={setCreditCard} /> */}
+              <Toggle state={creditCard} setState={setCreditCard} />
             </div>
           </div>
         </div>
