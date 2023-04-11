@@ -45,6 +45,7 @@ const MintButton = (props:any) => {
         const receipt = await tx.wait();
         await onSuccessfulMint(receipt);
       } catch (error) {
+        console.log("run handle txn", error);
         handleTxError(error);
         onSigning?.(false);
       }

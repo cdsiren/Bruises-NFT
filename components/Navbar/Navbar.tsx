@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <>
       <nav className={`${styles.navbar} w-full flex flex-wrap items-center sm:justify-between justify-center border-b border-black drop-shadow-md`} >
-        <NavItem href="https://decent.xyz" openInNewTab><Image width={100} height={30} src="https://nftstorage.link/ipfs/QmNcj6YK5qUBH3w4KVHviGQ7EJV4sM6FnLZvNrpPzawUfo" alt="decent" /></NavItem>
+        <NavItem href="https://nvakcollective.xyz/" openInNewTab><Image width={100} height={30} src="/images/nvak-logo.svg" alt="NVAK" /></NavItem>
         <div className="flex items-center gap-4">
           <LoginButton />
           <Link href='https://github.com/cdsiren/Bruises-NFT' target='_blank'>

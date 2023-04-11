@@ -26,7 +26,7 @@ const Home: NextPage = (props: any) => {
 
     <main className={`${styles.main}`}>
       <div className='grid md:grid-cols-2 grid-cols-1 place-items-center w-full mt-[10vh] sm:mt-0'>
-        <div className='md:border-r border-black h-[80vh] w-full'>
+        <div className='md:border-r border-black w-full'>
           <h1 className='sm:text-6xl text-5xl p-8 flex-items-center border-b border-black'>{props.contractData.data.name}</h1>
           <div className='font-[300] p-8 overflow-y-scroll sm:border-b border-black text-sm'>
             {props.contractData.metadata.description}
@@ -52,10 +52,10 @@ const Home: NextPage = (props: any) => {
               </div>
             </div>
           </div>
-          <div className='px-8 py-8 sm:border-none border-y border-black'>
-            <div className='grid grid-cols-3'><p>Follow on Lens:</p><a href='https://www.lensfrens.xyz/annikarose.lens' target='_blank'  className='text-green-500 flex gap-1 items-center justify-end' rel="noreferrer">Annika Rose<BiLinkExternal /></a><a href='https://www.lensfrens.xyz/nvakcollective.lens' className='text-green-500 flex gap-1 items-center justify-end' target='_blank' rel="noreferrer">Nvak Collective <BiLinkExternal /></a></div>
-            <div className='grid grid-cols-2'><p>Price:</p><p className='text-right'>{props.contractData.data.tokenPrice} ETH</p></div>
-            <div className='grid grid-cols-2'>
+          <div className='px-8 py-4 sm:border-none border-y border-black'>
+            <div className='grid grid-cols-3 gap-4'><p>Follow on Lens:</p><a href='https://www.lensfrens.xyz/annikarose.lens/follow' target='_blank'  className='text-green-500 flex gap-1 items-center justify-end' rel="noreferrer">Annika Rose<BiLinkExternal /></a><a href='https://www.lensfrens.xyz/nvakcollective.lens/follow' className='text-green-500 flex gap-1 items-center justify-end' target='_blank' rel="noreferrer">Nvak Collective <BiLinkExternal /></a></div>
+            <div className='grid grid-cols-2 gap-4'><p>Price:</p><p className='text-right'>{props.contractData.data.tokenPrice} ETH</p></div>
+            <div className='grid grid-cols-2 gap-4'>
               <p>Minted:</p>
               <p className='text-right'>{props.contractData.data.totalSupply} / {props.contractData.data.MAX_TOKENS > 99999999 ? "Open" : props.contractData.data.MAX_TOKENS}</p>
             </div>
@@ -80,7 +80,8 @@ const Home: NextPage = (props: any) => {
                 clientId={process.env.NEXT_PUBLIC_CROSSMINT_CLIENTID}
                 activeChain={1}
               />
-              <Toggle state={creditCard} setState={setCreditCard} />
+              {/* Crossmint not yet verified */}
+              {/* <Toggle state={creditCard} setState={setCreditCard} /> */}
             </div>
           </div>
         </div>
