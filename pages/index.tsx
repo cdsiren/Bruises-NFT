@@ -13,6 +13,7 @@ import { BiLinkExternal } from "react-icons/bi";
 const Home: NextPage = (props: any) => {
   const [creditCard, setCreditCard] = useState(false);
   const [mintQuantity, setMintQuantity] = useState(1);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   return <>
     <Head>
@@ -33,22 +34,22 @@ const Home: NextPage = (props: any) => {
             <div className='w-full flex flex-wrap justify-between gap-4 mt-8 hidden sm:inline-flex'>
               <div className='relative'>
                 <div className='text-center uppercase text-green-500'>Live Now</div>
-                <Image height={130} width={130} className="drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
+                <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
               </div>
               <div className='relative'>
                 <div className='text-center uppercase'>Upcoming</div>
                 <div className='absolute w-full h-full bg-white/80 text-center pt-4 text-3xl z-20 text-black'>?</div>
-                <Image height={130} width={130} className="drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
+                <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
               </div>
               <div className='relative'>
                 <div className='text-center uppercase'>Upcoming</div>
                 <div className='absolute w-full h-full bg-white/80 text-center pt-4 text-3xl z-20 text-black'>?</div>
-                <Image height={130} width={130} className="drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
+                <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
               </div>
               <div className='relative'>
                 <div className='text-center uppercase'>Upcoming</div>
                 <div className='absolute w-full h-full bg-white/80 text-center pt-4 text-3xl z-20 text-black'>?</div>
-                <Image height={130} width={130} className="drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
+                <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
               </div>
             </div>
           </div>
@@ -64,10 +65,12 @@ const Home: NextPage = (props: any) => {
 
         <div className='sm:px-8 px-4 w-full flex items-center justify-center my-4 sm:my-0'>
           <div className='space-y-4'>
-            <video controls className="drop-shadow-md max-h-[460px] w-full rounded-md">
+            {videoFailed ? 
+            <Image height={460} width={460} className="drop-shadow-md max-h-[460px] w-full rounded-md" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} /> :
+            <video controls className="drop-shadow-md max-h-[460px] w-full rounded-md" onError={() => setVideoFailed(true)}>
               <source src={getIpfsLink(props.contractData.metadata.animation_url)} />
               Your browser does not support the video tag.
-            </video>
+            </video>}
             <div className='max-w-[350px] mx-auto container'>
               <MintButton 
                 chainId={props.contractData.chainId} 
