@@ -32,7 +32,7 @@ const MintButton = (props:any) => {
 
   const mint = async () => {
     if (activeChain?.id !== props.activeChain) {
-      toast.error("Please switch to Polygon network to continue.");
+      toast.error("Please switch to Ethereum to continue.");
       return;
     }
     if (signer) {

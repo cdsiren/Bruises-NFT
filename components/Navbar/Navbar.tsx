@@ -29,7 +29,7 @@ const Navbar = () => {
         <NavItem href="https://decent.xyz" openInNewTab><Image width={100} height={30} src="https://nftstorage.link/ipfs/QmNcj6YK5qUBH3w4KVHviGQ7EJV4sM6FnLZvNrpPzawUfo" alt="decent" /></NavItem>
         <div className="flex items-center gap-4">
           <LoginButton />
-          <Link href='https://github.com/decentxyz/Minting-Page' target='_blank'>
+          <Link href='https://github.com/cdsiren/Bruises-NFT' target='_blank'>
             <div className="p-1 rounded-full bg-black">
               <Image src='/images/github-mark-white.svg' height={20} width={20} alt='link to repository' />
             </div>
