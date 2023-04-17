@@ -29,16 +29,17 @@ const Home: NextPage = (props: any) => {
       <div className='grid md:grid-cols-2 grid-cols-1 place-items-center w-full mt-[10vh] sm:mt-0'>
         <div className='md:h-[80vh] md:border-r border-black w-full'>
           <h1 className='sm:text-6xl text-5xl p-8 flex-items-center border-b border-black'>{props.contractData.data.name}</h1>
-          <div className='font-[300] p-8 overflow-y-scroll sm:border-b border-black text-sm'>
+          <div className='font-[300] p-8 overflow-y-scroll sm:border-b border-black text-sm break-all'>
             {props.contractData.metadata.description}
-            <div className='w-full flex flex-wrap justify-between gap-4 mt-8 hidden sm:inline-flex'>
+            <div className='w-full flex flex-wrap justify-between gap-4 mt-4 hidden sm:inline-flex'>
               <div className='relative'>
-                <div className='text-center uppercase text-green-500'>Live Now</div>
-                <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
+                <div className='text-center uppercase'>Secondaries ↗</div>
+                <Link href="https://hq.decent.xyz/1/Editions/0xbeCA7aBd9590257c2Aaa8671Be0ac4d6b713EDAC" className='cursor-pointer'>
+                  <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src="/images/scene1.png" alt={'nft'} />
+                </Link>
               </div>
               <div className='relative'>
-                <div className='text-center uppercase'>Upcoming</div>
-                <div className='absolute w-full h-full bg-white/80 text-center pt-4 text-3xl z-20 text-black'>?</div>
+                <div className='text-center uppercase text-green-500'>Minting</div>
                 <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
               </div>
               <div className='relative'>
@@ -53,13 +54,13 @@ const Home: NextPage = (props: any) => {
               </div>
             </div>
           </div>
-          <div className='px-8 py-4 sm:border-none border-y border-black'>
+          <div className='px-8 py-4 sm:border-none border-y border-black overflow-y-scroll h-[10vh]'>
             <div className='grid grid-cols-3 gap-4'><p>Follow on Lens:</p><a href='https://www.lensfrens.xyz/annikarose.lens/follow' target='_blank'  className='text-green-500 flex gap-1 items-center justify-end' rel="noreferrer">Annika Rose<BiLinkExternal /></a><a href='https://www.lensfrens.xyz/nvakcollective.lens/follow' className='text-green-500 flex gap-1 items-center justify-end' target='_blank' rel="noreferrer">Nvak Collective <BiLinkExternal /></a></div>
-            <div className='grid grid-cols-2 gap-4'><p>Price:</p><p className='text-right'>Free</p></div>
             <div className='grid grid-cols-2 gap-4'>
               <p>Minted:</p>
               <p className='text-right'>{props.contractData.data.totalSupply} / {props.contractData.data.MAX_TOKENS > 99999999 ? "Open" : props.contractData.data.MAX_TOKENS}</p>
             </div>
+            <div className='grid grid-cols-2 gap-4'><p>Price:</p><p className='text-right'>Free</p></div>
           </div>
         </div>
 
@@ -78,7 +79,7 @@ const Home: NextPage = (props: any) => {
                 price={0.0005} // crossmint can't be used w. free nfts; ok to charge convenience fee here
                 setQuantity={setMintQuantity} 
                 quantity={mintQuantity} 
-                decentLink={'https://hq.decent.xyz/1/Editions/0xbeCA7aBd9590257c2Aaa8671Be0ac4d6b713EDAC'} 
+                decentLink={'https://etherscan.io/address/0x1bc6Efce5f57eF48F92275255023AE7f2008a042'} 
                 state={creditCard} 
                 clientId={process.env.NEXT_PUBLIC_CROSSMINT_CLIENTID}
                 activeChain={1}
@@ -104,7 +105,7 @@ export default Home;
 
 export async function getStaticProps() {
   const CHAINID = 1;
-  const CONTRACT_ADDRESS = '0xbeCA7aBd9590257c2Aaa8671Be0ac4d6b713EDAC';
+  const CONTRACT_ADDRESS = '0x1bc6Efce5f57eF48F92275255023AE7f2008a042';
   let contractData = await getReleaseDetails(CHAINID, CONTRACT_ADDRESS)
   return {
     props: {
