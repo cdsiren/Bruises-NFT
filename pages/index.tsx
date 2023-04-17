@@ -30,7 +30,7 @@ const Home: NextPage = (props: any) => {
         <div className='md:h-[80vh] md:border-r border-black w-full'>
           <h1 className='sm:text-6xl text-5xl p-8 flex-items-center border-b border-black'>{props.contractData.data.name}</h1>
           <div className='font-[300] p-8 overflow-y-scroll sm:border-b border-black text-sm break-all'>
-            {props.contractData.metadata.description}
+            {props.contractData.metadata.description.slice(0, -105)}<a className='underline hover:opacity-80' target='_blank' href='https://mirror.xyz/0xf0a11CB9C4771b8F8444B15aD0Fa1109AC6bD209/lhpFmKE1kKLljPIjM8z6ls4BsE5OCoijR_hvgbRrP5k' rel="noreferrer">here</a>
             <div className='w-full flex flex-wrap justify-between gap-4 mt-4 hidden sm:inline-flex'>
               <div className='relative'>
                 <div className='text-center uppercase'>Secondaries ↗</div>
@@ -54,8 +54,8 @@ const Home: NextPage = (props: any) => {
               </div>
             </div>
           </div>
-          <div className='px-8 py-4 sm:border-none border-y border-black overflow-y-scroll h-[10vh]'>
-            <div className='grid grid-cols-3 gap-4'><p>Follow on Lens:</p><a href='https://www.lensfrens.xyz/annikarose.lens/follow' target='_blank'  className='text-green-500 flex gap-1 items-center justify-end' rel="noreferrer">Annika Rose<BiLinkExternal /></a><a href='https://www.lensfrens.xyz/nvakcollective.lens/follow' className='text-green-500 flex gap-1 items-center justify-end' target='_blank' rel="noreferrer">Nvak Collective <BiLinkExternal /></a></div>
+          <div className='px-8 py-4 sm:border-none border-y border-black overflow-y-scroll'>
+            <div className='grid grid-cols-3 gap-4'><p>Follow on Lens:</p><a href='https://www.lensfrens.xyz/annikarose.lens/follow' target='_blank'  className='flex gap-1 text-sm items-center justify-end' rel="noreferrer">Annika Rose<BiLinkExternal /></a><a href='https://www.lensfrens.xyz/nvakcollective.lens/follow' className='text-sm flex gap-1 items-center justify-end' target='_blank' rel="noreferrer">Nvak Collective <BiLinkExternal /></a></div>
             <div className='grid grid-cols-2 gap-4'>
               <p>Minted:</p>
               <p className='text-right'>{props.contractData.data.totalSupply} / {props.contractData.data.MAX_TOKENS > 99999999 ? "Open" : props.contractData.data.MAX_TOKENS}</p>
