@@ -33,23 +33,30 @@ const Home: NextPage = (props: any) => {
             {props.contractData.metadata.description}
             <div className='w-full flex flex-wrap justify-between gap-4 mt-4 hidden sm:inline-flex'>
               <div className='relative'>
-                <div className='text-center uppercase'>Secondaries ↗</div>
                 <Link href="https://hq.decent.xyz/1/Editions/0xbeCA7aBd9590257c2Aaa8671Be0ac4d6b713EDAC" className='cursor-pointer'>
-                  <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src="/images/scene1.png" alt={'nft'} />
+                  <><div className='text-center uppercase'>Purchase ↗</div>
+                  <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src="/images/scene1.png" alt={'nft'} /></>
                 </Link>
+                <div className='text-center uppercase'>scene 1</div>
               </div>
+              
               <div className='relative'>
-              <div className='text-center uppercase'>Secondaries ↗</div>
-                <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src="/images/scene2.png" alt={'nft'} />
+                <Link href="https://hq.decent.xyz/1/Editions/0x1bc6Efce5f57eF48F92275255023AE7f2008a042" className='cursor-pointer'>
+                  <><div className='text-center uppercase'>Purchase ↗</div>
+                <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src="/images/scene2.png" alt={'nft'} /></>
+                </Link>
+                <div className='text-center uppercase'>scene 2</div>
               </div>
               <div className='relative'>
                 <div className='text-center uppercase text-green-500'>Live Now</div>
                 <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
+                <div className='text-center uppercase'>scene 3</div>
               </div>
               <div className='relative'>
                 <div className='text-center uppercase'>Upcoming</div>
                 <div className='absolute w-full h-full bg-white/80 text-center pt-4 text-3xl z-20 text-black'>?</div>
                 <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
+                <div className='text-center uppercase'>scene 4</div>
               </div>
             </div>
           </div>
