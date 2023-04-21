@@ -83,7 +83,7 @@ const Home: NextPage = (props: any) => {
                 clientId={process.env.NEXT_PUBLIC_CROSSMINT_CLIENTID}
                 activeChain={1}
               />
-              <Toggle state={creditCard} setState={setCreditCard} />
+              {/* <Toggle state={creditCard} setState={setCreditCard} /> */}
             </div>
           </div>
         </div>
