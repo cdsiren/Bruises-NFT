@@ -29,7 +29,7 @@ const Home: NextPage = (props: any) => {
       <div className='grid md:grid-cols-2 grid-cols-1 place-items-center w-full mt-[10vh] sm:mt-0'>
         <div className='md:h-[80vh] md:border-r border-black w-full'>
           <h1 className='sm:text-6xl text-5xl p-8 flex-items-center border-b border-black'>{props.contractData.data.name}</h1>
-          <div className='font-[300] p-8 overflow-y-scroll sm:border-b border-black text-sm break-all'>
+          <div className='font-[300] p-8 overflow-y-scroll sm:border-b border-black text-sm'>
             {props.contractData.metadata.description}
             <div className='w-full flex flex-wrap justify-between gap-4 mt-4 hidden sm:inline-flex'>
               <div className='relative'>
@@ -48,13 +48,14 @@ const Home: NextPage = (props: any) => {
                 <div className='text-center uppercase'>scene 2</div>
               </div>
               <div className='relative'>
-                <div className='text-center uppercase text-green-500'>Live Now</div>
-                <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
+                <Link href="https://hq.decent.xyz/1/Editions/0xC638fDD43055b2F177Fd04e043DECCe0c8E4468f" className='cursor-pointer'>
+                  <><div className='text-center uppercase'>Purchase ↗</div>
+                  <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src="/images/scene3.png" alt={'nft'} /></>
+                </Link>
                 <div className='text-center uppercase'>scene 3</div>
               </div>
               <div className='relative'>
-                <div className='text-center uppercase'>Upcoming</div>
-                <div className='absolute w-full h-full bg-white/80 text-center pt-4 text-3xl z-20 text-black'>?</div>
+                <div className='text-center uppercase text-green-500'>live now</div>
                 <Image height={130} width={130} className="cursor-pointer hover:drop-shadow-lg" src={getIpfsLink(props.contractData.metadata.image)} alt={'nft'} />
                 <div className='text-center uppercase'>scene 4</div>
               </div>
@@ -85,12 +86,12 @@ const Home: NextPage = (props: any) => {
                 price={0.0005} // crossmint can't be used w. free nfts; ok to charge convenience fee here
                 setQuantity={setMintQuantity} 
                 quantity={mintQuantity} 
-                decentLink={'https://hq.decent.xyz/1/Editions/0xC638fDD43055b2F177Fd04e043DECCe0c8E4468f'} 
+                decentLink={'https://hq.decent.xyz/1/Editions/0xC9AB1884Cf178946BF4B2645bc44FcC1429ea614'} 
                 state={creditCard} 
                 clientId={process.env.NEXT_PUBLIC_CROSSMINT_CLIENTID}
                 activeChain={1}
               />
-              <Toggle state={creditCard} setState={setCreditCard} />
+              {/* <Toggle state={creditCard} setState={setCreditCard} /> */}
             </div>
           </div>
         </div>
@@ -111,7 +112,7 @@ export default Home;
 
 export async function getStaticProps() {
   const CHAINID = 1;
-  const CONTRACT_ADDRESS = '0xC638fDD43055b2F177Fd04e043DECCe0c8E4468f';
+  const CONTRACT_ADDRESS = '0xC9AB1884Cf178946BF4B2645bc44FcC1429ea614';
   let contractData = await getReleaseDetails(CHAINID, CONTRACT_ADDRESS)
   return {
     props: {
